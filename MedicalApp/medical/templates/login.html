@@ -1,0 +1,166 @@
+{% load static %}
+<!DOCTYPE HTML>
+<!--
+	Directive by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+		<link rel="stylesheet" type="css/background.css" href="mystyle.css">
+		<title>Login Page</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="{% static 'assets/css/main.css'%}">
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<div id="header">
+				<span class="logo icon fa-paper-plane"></span>
+				<h1>Hi. This is Your Online Doctor.</h1>
+				<p>Welcome to check your healthy on the website</a>
+				<br />
+				Once you have your account, feel free to check your body status, contact the doctor and the developers </p>
+			</div>
+
+		<!-- Main -->
+			<!-- <div id="main"> -->
+	<div class="container">
+		<div class="row" style="height: 200px;">
+			<!-- <div class="col-md-4 offset-md-4"> -->
+			<h3 class="m-auto" style="margin:0 auto;">Patient Information Management</h3>
+				<!-- </div> -->
+		</div>
+		<div class="row">
+			<div class="col-md-8 offset-md-2">
+				<form action="/checkUser/" method="post">
+                    {% csrf_token %}
+					<div class="form-group row">
+						<label for="inputEmail3" class="col-sm-2 col-form-label">Username</label>
+						<div class="col-sm-10">
+							<input type="username" class="form-control" name="username" id="inputEmail3" placeholder="Please enter your username">
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+						<div class="col-sm-10">
+							<input type="password" class="form-control" name="password" id="inputPassword3" placeholder="Please enter your password">
+						</div>
+					</div>
+					<div class="form-group row">
+                            <br/>
+                            <legend class="col-form-label col-sm-2 pt-0">Type</legend>
+                            <div class="col-sm-10">
+                                <div class="form-check">
+                                    <lable class="form-check-input" for="gridRadios1">
+                                        <input  type="radio" name="type" value="1" checked/>
+                                        Doctor</lable>
+                                </div>
+
+                                <br/>
+                                <div class="form-check">
+                                   <lable for="gridRadios2">
+                                        <input class="form-check-input" type="radio" name="type" value="0" checked/>
+                                        Patient</lable>
+                                </div>
+                            </div>
+                        </div>
+						<div class="col-md-10 style="vertical-align:center;">
+							<a  href="/register">Register first</a>
+						</div>
+						
+						<div class="col-sm-2 text-sm-right">
+							<button type="submit" class="btn btn-primary ">Login</button>
+						</div>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+
+                    <div style="opacity: 0">
+                        <p>1</p>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<script src="{% static 'jquery-3.3.1.slim.min.js' %}" type="text/javascript" charset="utf-8"></script>
+	<script src="{% static 'popper.min.js' %}" type="text/javascript" charset="utf-8"></script>
+	<script src="{% static 'js/bootstrap.min.js' %}" type="text/javascript" charset="utf-8"></script>
+				<!-- <header class="major container medium"> -->
+					<!-- <h2>We conduct experiments that -->
+					<!-- <br /> -->
+					<!-- may or may not seriously -->
+					<!-- <br /> -->
+					<!-- break the universe</h2> -->
+					<!-- <!-- -->
+					<!-- <p>Tellus erat mauris ipsum fermentum<br /> -->
+					<!-- etiam vivamus nunc nibh morbi.</p> -->
+					<!-- --> -->
+				<!-- </header> -->
+
+				<!-- <footer class="major container medium"> -->
+					<!-- <h3>Get shady with science</h3> -->
+					<!-- <p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci penatibus. Tellus erat mauris ipsum fermentum etiam vivamus.</p> -->
+					<!-- <ul class="actions special"> -->
+						<!-- <li><a href="#" class="button">Join our crew</a></li> -->
+					<!-- </ul> -->
+				<!-- </footer> -->
+
+			<!-- </div> -->
+
+		<!-- Footer -->
+			<div id="footer">
+				<div class="container medium">
+
+					<header class="major last">
+						<h2>Questions or comments?</h2>
+					</header>
+
+					<p>It's a pleasure to hear your feedback!</p>
+
+					<form action="mailto:xjiang15@wou.edu" method="post" enctype="text/plain">
+						<div class="row">
+							<div class="col-6 col-12-mobilep">
+								<input type="text" name="name" placeholder="Name" />
+							</div>
+							<div class="col-6 col-12-mobilep">
+								<input type="email" name="email" placeholder="Email" />
+							</div>
+							<div class="col-12">
+								<textarea name="message" placeholder="Message" rows="6"></textarea>
+							</div>
+							<div class="col-12">
+								<ul class="actions special">
+									<li><input type="submit" value="Send Message" /></li>
+								</ul>
+							</div>
+						</div>
+					</form>
+
+					<ul class="icons">
+						<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+						<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
+					</ul>
+
+					<ul class="copyright">
+						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+
+				</div>
+			</div>
+
+		<!-- Scripts -->
+	<script src="{% static 'assets/js/jquery.min.js' %}" type="text/javascript" charset="utf-8"></script>
+	<script src="{% static 'assets/js/browser.min.js' %}" type="text/javascript" charset="utf-8"></script>
+	<script src="{% static 'assets/js/breakpoints.min.js' %}" type="text/javascript" charset="utf-8"></script>
+        <script src="{% static 'assets/js/util.js' %}" type="text/javascript" charset="utf-8"></script>
+	<script src="{% static 'assets/js/main.js' %}" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

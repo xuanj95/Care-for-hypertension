@@ -1,0 +1,376 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Patient Page</title>
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+    <style>
+		body{
+			background-image: url( "{% static "assets/homeshow.HEIC" %}");
+			background-color: #cccccc;
+			height: 500px;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			position: relative;
+            padding: auto;
+		}
+        ::-webkit-scrollbar{
+            display: none;
+
+        }
+        .Cir_box_1{
+                    width: auto;
+                    z-index:10;
+                    background: rgba(0, 0, 0, 0.7);
+                    height: auto;
+                    border-radius: 30px 30px 30px 30px;
+                    padding: 20px;
+
+                    }
+               .inside_box{
+                        margin: 5px 5px;
+                        padding: 5px 5px;
+                        background: #fff1ef;
+                        position: relative;
+                        }
+    </style>
+</head>
+<body>
+	<div class="container">
+
+        <div class="row" style="padding-top: 20px;padding-bottom: 20px; background-color: #eee;">
+			<div class="col-md-10">
+				<header id="header" class="">
+					<h2>Patient Information Management</h2>
+				</header>
+			</div>
+			<div class="col-md-2">
+				<p id="userName">Welcome, {{ username }}</p>
+                <a href="/login/" >LogOut</a>
+
+		</div>
+        </div>
+            <div class="Cir_box_1">
+                <div class="inside_box" style="overflow: scroll;height: 500px">
+		            <div class="row">
+			            <div id="heartRateCharts" style="width: 600px;height:400px; margin:0 auto; padding-bottom: 20px;"></div>
+		            </div>
+		            <div class="row">
+                        <div id="diastolicBloodPressureCharts" style="width: 600px;height:400px; margin:0 auto; padding-bottom: 20px;"></div>
+		            </div>
+		            <div class="row">
+			        <div id="systolicBloodPressureCharts" style="width: 600px;height:400px; margin:0 auto; padding-bottom: 20px;"></div>
+		            </div>
+		            <div class="row">
+			        <div id="bloodOxygenationCharts" style="width: 600px;height:400px; margin:0 auto; padding-bottom: 20px;"></div>
+		            </div>
+                </div>
+             </div>
+	    </div>
+	<script src="{% static 'jquery-3.3.1.slim.min.js' %}" type="text/javascript" charset="utf-8"></script>
+	<script src="{% static 'popper.min.js' %}" type="text/javascript" charset="utf-8"></script>
+	<script src="{% static 'js/bootstrap.min.js' %}" type="text/javascript" charset="utf-8"></script>
+	<script src="{% static 'echarts.min.js' %}" type="text/javascript" charset="utf-8"></script>
+	<script>
+		// 基于准备好的dom，初始化echarts实例
+		var heartRateCharts = echarts.init(document.getElementById('heartRateCharts'));
+		var diastolicBloodPressureCharts = echarts.init(document.getElementById('diastolicBloodPressureCharts'));
+		var systolicBloodPressureCharts = echarts.init(document.getElementById('systolicBloodPressureCharts'));
+		var bloodOxygenationCharts = echarts.init(document.getElementById('bloodOxygenationCharts'));
+
+        var data={{ data |safe }}
+        {#var data=[[100,70,20190901],[150,55,20190902],[105,90,20190903],[125,75,20190904],[116,65,20190905],[95,90,20190906],[85,65,20190907],[110,85,20190908],[105,90,20190909],[125,75,20190910],[116,65,20190911],[95,90,20190912],[85,95,20190913],[95,90,20190914],[85,65,20190915]]#}
+
+        // 指定图表的配置项和数据
+        var optionHeart = {
+        	title: {
+        		text: 'BPM'
+        	},
+        	tooltip: {
+        		trigger: 'axis'
+        	},
+        	xAxis: {
+        		data: data.map(function (item) {
+        			return item[4];
+        		})
+        	},
+        	yAxis: {
+        		splitLine: {
+        			show: false
+        		},
+        		min: 60,
+        	},
+        	visualMap: {
+        		top: 10,
+                right: 10, //会在右边显示
+            pieces: [{
+            	gt: 0,
+            	lte: 60,
+            	color: '#ff0000'
+            }, {
+            	gt: 100,
+            	color: '#ff0000'
+            }],
+            outOfRange: {
+            	color: '#00FA9A'
+            }
+        },
+        series: {
+        	name: 'BPM',
+        	type: 'line',
+        	data: data.map(function (item) {
+        		return item[0];
+        	}),
+        	markLine: {
+        		silent: true,
+        		data: [{
+        			yAxis: 60
+        		}, {
+        			yAxis: 100
+        		},{
+        			symbol: 'circle',
+        			label: {
+        				normal: {
+        					position: 'end',
+        					formatter: 'Maximum'
+        				}
+        			},
+        			type: 'max',
+        			name: 'peak'
+        		},{
+        			symbol: 'circle',
+        			label: {
+        				normal: {
+        					position: 'end',
+        					formatter: 'Minimum'
+        				}
+        			},
+        			type: 'min',
+        			name: 'peak'
+        		}]
+        	}
+        }
+    }
+        var optionOxy = {
+        	title: {
+        		text: 'SPO2'
+        	},
+        	tooltip: {
+        		trigger: 'axis'
+        	},
+        	xAxis: {
+        		data: data.map(function (item) {
+        			return item[4];
+        		})
+        	},
+        	yAxis: {
+        		splitLine: {
+        			show: false
+        		},
+        		min: 80,
+        	},
+        	visualMap: {
+        		top: 10,
+                right: 10, //会在右边显示
+            pieces: [{
+            	gt: 0,
+            	lte: 95,
+            	color: '#ff0000'
+            }, {
+            	gt: 100,
+            	color: '#ff0000'
+            }],
+            outOfRange: {
+            	color: '#00FA9A'
+            }
+        },
+        series: {
+        	name: 'SPO2',
+        	type: 'line',
+        	data: data.map(function (item) {
+        		return item[3];
+        	}),
+        	markLine: {
+        		silent: true,
+        		data: [{
+        			yAxis: 95
+        		}, {
+        			yAxis: 100
+        		},{
+        			symbol: 'circle',
+        			label: {
+        				normal: {
+        					position: 'end',
+        					formatter: 'Maximum'
+        				}
+        			},
+        			type: 'max',
+        			name: 'peak'
+        		},{
+        			symbol: 'circle',
+        			label: {
+        				normal: {
+        					position: 'end',
+        					formatter: 'Minimum'
+        				}
+        			},
+        			type: 'min',
+        			name: 'peak'
+        		}]
+        	}
+        }
+    }
+
+        // 使用刚指定的配置项和数据显示图表。
+        heartRateCharts.setOption(optionHeart);
+        bloodOxygenationCharts.setOption(optionOxy);
+
+
+        //舒张压
+        diastolicBloodPressureCharts.setOption(option = {
+        	title: {
+        		text: 'diastolic pressure'
+        	},
+        	tooltip: {
+        		trigger: 'axis'
+        	},
+        	xAxis: {
+        		data: data.map(function (item) {
+        			return item[4];
+        		})
+        	},
+        	yAxis: {
+        		splitLine: {
+        			show: false
+        		},
+        		min: 40,
+        	},
+        	visualMap: {
+        		top: 10,
+                right: 10, //会在右边显示
+            pieces: [{
+            	gt: 0,
+            	lte: 60,
+            	color: '#ff0000'
+            }, {
+            	gt: 90,
+            	color: '#ff0000'
+            }],
+            outOfRange: {
+            	color: '#00FA9A'
+            }
+        },
+        series: {
+        	name: 'diastolic pressure',
+        	type: 'line',
+        	data: data.map(function (item) {
+        		return item[2];
+        	}),
+        	markLine: {
+        		silent: true,
+        		data: [{
+        			yAxis: 60
+        		}, {
+        			yAxis: 90
+        		},{
+        			symbol: 'circle',
+        			label: {
+        				normal: {
+        					position: 'end',
+        					formatter: 'Maximum'
+        				}
+        			},
+        			type: 'max',
+        			name: 'peak'
+        		},{
+        			symbol: 'circle',
+        			label: {
+        				normal: {
+        					position: 'end',
+        					formatter: 'Minimum'
+        				}
+        			},
+        			type: 'min',
+        			name: 'peak'
+        		}]
+        	}
+        }
+    });
+        //收缩压
+        systolicBloodPressureCharts.setOption(option = {
+        	title: {
+        		text: 'systolic pressure'
+        	},
+        	tooltip: {
+        		trigger: 'axis'
+        	},
+        	xAxis: {
+        		data: data.map(function (item) {
+        			return item[4];
+        		})
+        	},
+        	yAxis: {
+        		splitLine: {
+        			show: false
+        		},
+        		min: 70,
+        		max:150
+        	},
+        	visualMap: {
+        		top: 10,
+                right: 10, //会在右边显示
+            pieces: [{
+            	gt: 0,
+            	lte: 90,
+            	color: '#ff0000'
+            }, {
+            	gt: 140,
+            	color: '#ff0000'
+            }],
+            outOfRange: {
+            	color: '#00FA9A'
+            }
+        },
+        series: {
+        	name: 'systolic pressure',
+        	type: 'line',
+        	data: data.map(function (item) {
+        		return item[1];
+        	}),
+        	markLine: {
+        		silent: true,
+        		data: [{
+        			yAxis: 90
+        		}, {
+        			yAxis: 140
+        		},{
+        			symbol: 'circle',
+        			label: {
+        				normal: {
+        					position: 'end',
+        					formatter: 'Maximum'
+        				}
+        			},
+        			type: 'max',
+        			name: 'peak'
+        		},{
+        			symbol: 'circle',
+        			label: {
+        				normal: {
+        					position: 'end',
+        					formatter: 'Minimum'
+        				}
+        			},
+        			type: 'min',
+        			name: 'peak'
+        		}]
+        	}
+        }
+    });
+
+</script>
+</body>
+</html>

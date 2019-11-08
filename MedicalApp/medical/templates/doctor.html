@@ -1,0 +1,297 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Docter Page</title>
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+	<style>
+		body{
+			background-image: url( "{% static "assets/homeshow.HEIC" %}");
+			background-color: #cccccc;
+			height: 500px;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			position: relative;
+            padding: auto;
+		}
+		::-webkit-scrollbar { 
+		display: none; 
+		}
+        .Cir_box_1{
+                    width:28%;
+                    height: auto;
+                    z-index:10;
+                    background: rgba(0, 0, 0, 0.7);
+                    border-radius: 5px 5px 5px 5px;
+                    }
+        .Cir_box_2{
+                    width:43%;
+                    height: auto;
+                    z-index:10;
+                    background: rgba(0, 0, 0, 0.7);
+                    float:right;
+                    border-radius: 5px 5px 5px 5px;
+                    }
+        .inside_box{
+            margin:  10px 1px;
+            padding: 10px 10px;
+            background: #fff1ef;
+            position: relative;
+        }
+	</style>
+</head>
+<body>
+    <div class="container">
+        <div class="row" style="padding-top: 20px;padding-bottom: 20px; background-color: #eee;">
+            <div class="col-md-9">
+                <header id="header" class="">
+                    <h2>Patient Information management</h2>
+                </header>
+            </div>
+            <div class="col-md-3">
+                <p id="userName">Welcome, Dr.{{ username }}</p>
+                <a href="/login/" >LogOut</a>
+            </div>
+        </div>
+        <div class="row" style="padding-top: 30px; overflow:scroll; height: 480px;">
+            <div class="col-md-3 Cir_box_1">
+                <form>
+                      <div class="form-group text-center">
+                        <h4 for="exampleInputEmail1">Search Patient</h4>
+                        <input type="name" class="form-control" id="patientName" aria-describedby="patientName" placeholder="Patient Name">
+                      </div>
+                </form>
+                <div id="namelist" style="height: 330px;overflow: scroll">
+                    <div class="list-group">
+                        {% for patient in patients  %}
+                            <a href="/patientUser/{{ patient.username }}" class="list-group-item list-group-item-action">{{ patient.username }}</a>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9 Cir_box_2">
+                <div class="inside_box" style="overflow: scroll; height: 430px">
+                <div class="text-center" >
+                    <h2>Patient comprehensive data analysis</h2>
+                </div>
+                <div id="1" style="padding-top: 10px; padding-bottom: 10px;">
+                    <h3 class="text-center">BPM distribution monthly classified by gender</h3>
+                    <div id="heartRateCharts" style="width: 600px;height:600px; margin:0 auto;">
+                    </div>
+                </div>
+    <!-- 			<div id="4" style="padding-top: 10px; padding-bottom: 10px;">
+                    <h3 class="text-center">近一个月男女舒张压平均值</h3>
+                    <div id="diastolicBloodPressureCharts" style="width: 600px;height:400px; margin:0 auto; padding-bottom: 20px;"></div>
+                </div>	 -->
+                <div id="2" style="padding-top: 10px; padding-bottom: 10px;">
+                    <h3 class="text-center">Blood pressure distribution monthly classified by gender</h3>
+                    <div id="systolicBloodPressureCharts" style="width: 600px;height:400px; margin:0 auto; padding-bottom: 20px;"></div>
+                </div>
+                <div id="3" style="padding-top: 10px; padding-bottom: 10px;">
+                    <h3 class="text-center">SPO2 distribution monthly classified by gender</h3>
+                    <div id="bloodOxygenationCharts" style="width: 600px;height:610px; margin:0 auto; padding-bottom: 20px;"></div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+	<script src="{% static 'jquery-3.3.1.slim.min.js' %}" type="text/javascript" charset="utf-8"></script>
+	<script src="{% static 'popper.min.js' %}" type="text/javascript" charset="utf-8"></script>
+	<script src="{% static 'js/bootstrap.min.js' %}" type="text/javascript" charset="utf-8"></script>
+	<script src="{% static 'echarts.min.js' %}" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+        var dataPressure={{ dataPressure |safe}};
+        var rateMale={{ rateMale |safe }};
+        var rateFemale={{ rateFemale |safe }};
+        var oxyMale={{ oxyMale |safe }};
+        var oxyFemale={{ oxyFemale |safe}};
+
+        // 基于准备好的dom，初始化echarts实例
+		var heartRateCharts = echarts.init(document.getElementById('heartRateCharts'));
+		// var diastolicBloodPressureCharts = echarts.init(document.getElementById('diastolicBloodPressureCharts'));
+		var systolicBloodPressureCharts = echarts.init(document.getElementById('systolicBloodPressureCharts'));
+		var bloodOxygenationCharts = echarts.init(document.getElementById('bloodOxygenationCharts'));
+		option = {
+		    tooltip : {
+		        trigger: 'axis',
+		        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+		            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+		        }
+		    },
+		    legend: {
+		        data:['male','female']
+		    },
+		    grid: {
+		        left: '3%',
+		        right: '4%',
+		        bottom: '3%',
+		        containLabel: true
+		    },
+		    xAxis : [
+		        {
+		            type : 'category',
+		            data : ['systolic','diastolic']
+		        }
+		    ],
+		    yAxis : [
+		        {
+		            type : 'value'
+		        }
+		    ],
+		    series : [
+		        {
+		            name:'male',
+		            type:'bar',
+		            data:[dataPressure["male"]["systolicBloodPressure"],
+                        dataPressure["male"]["diastolicBloodPressure"] ]
+		        },
+		        {
+		            name:'female',
+		            type:'bar',
+		            data:[dataPressure["female"]["systolicBloodPressure"],
+                        dataPressure["female"]["diastolicBloodPressure"] ]
+		        }
+		    ]
+		};
+		systolicBloodPressureCharts.setOption(option);
+
+		optionRate = {
+		    title : {
+		        text: 'BPM distribution',
+		        subtext: '',
+		        x:'center'
+		    },
+		    tooltip : {
+		        trigger: 'item',
+		        formatter: "{a}：{b} <br/>{c} ({d}%)"
+		    },
+		    legend: {
+		        x : 'center',
+		        y : 'bottom',
+		        data:['<60','60-70','70-80','80-90','90-100','>100']
+		    },
+		    toolbox: {
+		        show : true,
+		        feature : {
+		            mark : {show: true},
+		            dataView : {show: true, readOnly: false},
+		            magicType : {
+		                show: true,
+		                type: ['pie', 'funnel']
+		            },
+		            restore : {show: true},
+		            saveAsImage : {show: true}
+		        }
+		    },
+		    calculable : true,
+		    series : [
+		        {
+		            name:'Male BPM',
+		            type:'pie',
+		            radius : [20, 110],
+		            center : ['50%', '25%'],
+		            roseType : 'area',
+		            data:[
+		                {value:rateMale["id06"], name:'<60'},
+		                {value:rateMale["id67"], name:'60-70'},
+		                {value:rateMale["id78"], name:'70-80'},
+		                {value:rateMale["id89"], name:'80-90'},
+		                {value:rateMale["id910"], name:'90-100'},
+		                {value:rateMale["id100"], name:'>100'}
+		            ]
+		        },
+		        ,
+		        {
+		            name:'Female BPM',
+		            type:'pie',
+		            radius : [20, 110],
+		            center : ['50%', '75%'],
+		            roseType : 'area',
+		            data:[
+		                {value:rateFemale["id06"], name:'<60'},
+		                {value:rateFemale["id67"], name:'60-70'},
+		                {value:rateFemale["id78"], name:'70-80'},
+		                {value:rateFemale["id89"], name:'80-90'},
+		                {value:rateFemale["id910"], name:'90-100'},
+		                {value:rateFemale["id100"], name:'>100'}
+		            ]
+		        }
+		    ]
+		};
+		heartRateCharts.setOption(optionRate);
+
+		optionOxy = {
+		    title : {
+		        text: 'SPO2 distribution',
+		        subtext: '',
+		        x:'center'
+		    },
+		    tooltip : {
+		        trigger: 'item',
+		        formatter: "{a}：{b} <br/>{c} ({d}%)"
+		    },
+		    legend: {
+		        x : 'center',
+		        y : 'bottom',
+		        data:['<90','90-95','95-100']
+		    },
+		    toolbox: {
+		        show : true,
+		        feature : {
+		            mark : {show: true},
+		            dataView : {show: true, readOnly: false},
+		            magicType : {
+		                show: true,
+		                type: ['pie', 'funnel']
+		            },
+		            restore : {show: true},
+		            saveAsImage : {show: true}
+		        }
+		    },
+		    calculable : true,
+		    series : [
+		        {
+		            name:'Male SPO2',
+		            type:'pie',
+		            radius : [20, 110],
+		            center : ['50%', '25%'],
+		            roseType : 'area',
+		            data:[
+		                {value:oxyMale["id00"], name:'<90'},
+		                {value:oxyMale["id05"], name:'90-95'},
+		                {value:oxyMale["id50"], name:'95-100'},
+		            ]
+		        },
+		        ,
+		        {
+		            name:'Female SPO2',
+		            type:'pie',
+		            radius : [20, 110],
+		            center : ['50%', '75%'],
+		            roseType : 'area',
+		            data:[
+		                {value:oxyFemale["id00"], name:'<90'},
+		                {value:oxyFemale["id05"], name:'90-95'},
+		                {value:oxyFemale["id50"], name:'95-100'},
+		            ]
+		        }
+		    ]
+		};
+		bloodOxygenationCharts.setOption(optionOxy);
+	</script>
+    <script type="text/javascript">
+        $(function(){
+            $('#patientName').bind('keypress',function(e){
+                if(e.keyCode=="13"){
+                    tt="/patientUser/"+this.value;
+                    window.open(tt)
+                }
+            })
+        });
+    </script>
+</body>
+</html>

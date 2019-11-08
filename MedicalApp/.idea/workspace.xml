@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b3e262df-6523-452e-bde2-76627073eca3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/MedicalApp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/MedicalApp.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MedicalApp/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/MedicalApp/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/medical/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/medical/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/medical/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/medical/templates/login.html" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1RhPASLkBzdIB5I1L3UvXMvqYz0" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\sproject\MedicalApp\medical\static" />
+      <recent name="E:\sproject\MedicalApp\medical\templates" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Django server.MedicalApp">
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="MedicalApp" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="thingspeak" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="MedicalApp" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/thingspeak.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="MedicalApp" type="Python.DjangoServer" factoryName="Django server">
+      <module name="MedicalApp" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="MedicalApp.settings" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.thingspeak" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b3e262df-6523-452e-bde2-76627073eca3" name="Default Changelist" comment="" />
+      <created>1570116210482</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1570116210482</updated>
+      <workItem from="1570116211746" duration="47931000" />
+      <workItem from="1570622310648" duration="1456000" />
+      <workItem from="1570624232682" duration="4129000" />
+      <workItem from="1571007437278" duration="697000" />
+      <workItem from="1571008255916" duration="172000" />
+      <workItem from="1571020161883" duration="202000" />
+      <workItem from="1571027172586" duration="1410000" />
+      <workItem from="1571033470751" duration="656000" />
+      <workItem from="1571034824096" duration="14000" />
+      <workItem from="1571034847835" duration="479000" />
+      <workItem from="1571035391221" duration="48000" />
+      <workItem from="1571103003709" duration="3000" />
+      <workItem from="1571103010121" duration="694000" />
+      <workItem from="1571113679100" duration="62000" />
+      <workItem from="1571216514328" duration="120000" />
+      <workItem from="1571216798872" duration="371000" />
+      <workItem from="1571629297592" duration="4685000" />
+      <workItem from="1571639515037" duration="239000" />
+      <workItem from="1571639980894" duration="49000" />
+      <workItem from="1571640143303" duration="141000" />
+      <workItem from="1571747720338" duration="236000" />
+      <workItem from="1571796166713" duration="12917000" />
+      <workItem from="1571980742408" duration="1134000" />
+      <workItem from="1571986728535" duration="62000" />
+      <workItem from="1571993324130" duration="58000" />
+      <workItem from="1571994552809" duration="410000" />
+      <workItem from="1572186146205" duration="8037000" />
+      <workItem from="1572233682727" duration="2992000" />
+      <workItem from="1572238703143" duration="3801000" />
+      <workItem from="1572343651458" duration="1000" />
+      <workItem from="1572512308119" duration="99000" />
+      <workItem from="1572528525891" duration="26000" />
+      <workItem from="1572528670890" duration="23000" />
+      <workItem from="1572528895832" duration="34000" />
+      <workItem from="1572529776755" duration="7000" />
+      <workItem from="1572529959861" duration="11000" />
+      <workItem from="1572530073956" duration="8000" />
+      <workItem from="1572530097491" duration="3000" />
+      <workItem from="1572530225807" duration="6000" />
+      <workItem from="1572530286747" duration="12000" />
+      <workItem from="1572530306331" duration="31000" />
+      <workItem from="1572530362873" duration="21000" />
+      <workItem from="1572530713081" duration="40000" />
+      <workItem from="1572530783082" duration="7000" />
+      <workItem from="1572531054076" duration="7000" />
+      <workItem from="1572533405702" duration="3000" />
+      <workItem from="1572667360550" duration="827000" />
+      <workItem from="1572668691999" duration="268000" />
+      <workItem from="1572668963039" duration="1909000" />
+      <workItem from="1573104371779" duration="2595000" />
+      <workItem from="1573174184210" duration="391000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/MedicalApp$thingspeak.coverage" NAME="thingspeak Coverage Results" MODIFIED="1571639469731" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+</project>
